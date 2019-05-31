@@ -162,6 +162,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
+  links: /links/ || link
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -220,7 +221,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  Nick的小站: http://inick.top
+  # Nick的小站: http://inick.top
 
 # Sidebar Avatar
 avatar:

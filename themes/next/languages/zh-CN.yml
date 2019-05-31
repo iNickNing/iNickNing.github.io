@@ -4,12 +4,14 @@ title:
   category: 分类
   tag: 标签
   schedule: 日程表
+  links: 友情链接
 menu:
   home: 首页
   archives: 归档
   categories: 分类
   tags: 标签
   about: 关于
+  links: 友链
   search: 搜索
   schedule: 日程表
   sitemap: 站点地图
