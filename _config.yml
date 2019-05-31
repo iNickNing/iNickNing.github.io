@@ -59,7 +59,6 @@ category_map:
   学习记录: study
 	问题解决: life
   其他: other
-  测试: test
 
 tag_map:
   Java

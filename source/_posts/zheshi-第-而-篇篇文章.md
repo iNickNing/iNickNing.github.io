@@ -1,7 +1,7 @@
 ---
 title: zheshi 第 而 篇篇文章
 date: 2019-06-01 00:37:19
-categories: 测试
+categories: 其他
 tags: 
   - Test
 ---
