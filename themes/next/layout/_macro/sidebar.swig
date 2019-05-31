@@ -158,7 +158,7 @@
               <ul class="links-of-blogroll-list">
                 {% for blogrollText, blogrollURL in theme.links %}
                   <li class="links-of-blogroll-item">
-                    {{ next_url(blogrollURL, blogrollText, {title: blogrollURL}) }}
+                    {{ next_url(blogrollURL, blogrollText, {title: blogrollURL, target: "_blank"}) }}
                   </li>
                 {% endfor %}
               </ul>

@@ -55,8 +55,20 @@ index_generator:
   
 # Category & Tag
 default_category: uncategorized
-category_map:
+category_map: 
+  学习记录: study
+	问题解决: life
+  其他: other
+  测试: test
+
 tag_map:
+  Java
+  Linux
+  Node.js
+  Python
+  Mysql
+  HTML
+  Log
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
