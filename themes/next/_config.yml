@@ -83,7 +83,7 @@ footer:
     icp: 湘ICP备15018985号-1
 
   # Any custom text can be defined here.
-  #custom_text: Hosted by <a href="https://pages.coding.me" class="theme-link" rel="noopener" target="_blank">Coding Pages</a>
+  custom_text: Hosted by <a href="https://github.com/iNickNing/iNickNing.github.io" class="theme-link" rel="noopener" target="_blank">Github Pages</a>
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples

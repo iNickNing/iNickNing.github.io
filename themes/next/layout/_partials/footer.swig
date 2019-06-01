@@ -60,3 +60,9 @@
   #}{{ theme.footer.custom_text }}{#
 #}</div>
 {% endif %}
+<div class="footer-custom">
+<div style="text-aligin: center">又拍云提供CDN & 存储服务</div>
+<a href="https://www.upyun.com/">
+  <img src="https://upoos.inick.top/images/upyun_logo.png" width="130px"/>
+</a> 
+</div>
