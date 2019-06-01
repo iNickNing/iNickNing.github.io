@@ -1,1 +1,103 @@
 // Custom styles.
+
+.links ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.links > li img {
+    margin: 0;
+    display: inline-block;
+}
+
+
+.links-box {
+    margin: 10px auto;
+    padding: 10px;
+}
+.links-box .links {
+    max-width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.links > li {
+    float: left;
+    width: 33.3%;
+}
+
+@media (max-width : 1031px) {
+    .links > li {
+        float: left;
+        width: 50%;
+    }
+}
+
+@media (max-width : 540px) {
+    .links > li {
+        float: left;
+        width: 100%;
+    }
+    .links > li a span {
+        text-align: center;
+    }
+}
+
+.links > li a {
+    display: block;
+    height: 80px;
+    margin: 5px;
+    box-shadow: 0px 0px 1px 0px rgba(1, 1, 1, 0.1); 
+    transition: 0.3s;
+}
+
+.links > li a:hover {
+    box-shadow: 0px 0px 3px 0px rgba(1, 1, 1, 0.6); 
+}
+
+.links > li a:hover img {
+    transform: rotate(10deg);
+}
+
+.links > li a img {
+    width: 70px;
+    height: auto;
+    padding: 5px;
+    border-radius: 50%;
+    vertical-align: middle;
+    transition: 0.8s;
+}
+
+.links > li a span {
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+}
+
+
+.note {
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid rgba(1, 1, 1, 0.5);
+}
+
+.note p {
+    padding: 5px;
+    margin: 0;
+}
+
+
+.links-format {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid rgba(1, 1, 1, 0.6);
+}
+
+/* 动画 */
+@keyframes nick_an
+{
+0% {transform: rotate(-10deg);}
+100% {transform: rotate(10deg);}
+}
