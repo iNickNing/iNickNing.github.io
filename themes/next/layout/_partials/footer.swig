@@ -61,8 +61,8 @@
 #}</div>
 {% endif %}
 <div class="footer-custom">
-<div style="text-aligin: center">又拍云提供CDN & 存储服务</div>
-<a href="https://www.upyun.com/">
+<div style="text-aligin: center" target="_blank">又拍云提供CDN & 存储服务</div>
+<a href="https://console.upyun.com/register/?invite=HkFxjOyAV" style="display:block;width:130px;margin:0 auto;">
   <img src="https://upoos.inick.top/images/upyun_logo.png" width="130px"/>
 </a> 
 </div>

@@ -5,15 +5,15 @@
 # Site
 title: iNick的小站
 subtitle: 只有十分努力,才能看起来毫不费力.
-description: 大家好，我是iNick，这里是iNick的小站，欢迎大家来交流。
-keywords: iNick,nick,inick,,Java,Web,Python,Linux,学习,分享,提高,交流,JavaScript,js,JS
+description: 只有十分努力,才能看起来毫不费力.
+keywords: iNick,nick,Nick,inick,Java,Web,Python,Linux,学习,分享,提高,交流,JavaScript,js,JS
 author: iNcik
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://inick.top
+url: https://inick.top
 root: /
 #permalink: :year/:month/:day/:title/
 permalink: :year/:id/
@@ -93,3 +93,9 @@ deploy:
   type: git
   repository: git@github.com:iNickNing/iNickNing.github.io.git
   branch: master
+
+# 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
