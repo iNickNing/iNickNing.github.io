@@ -1,0 +1,166 @@
+---
+title: Ubuntu-装好系统之后要怎么装比
+id: article20190622061839
+date: 2019-06-22 14:18:39
+categories: 学习记录
+tags:
+  - Linux
+---
+
+### # 背景
+因为我总是时不时的就会把电脑重装，
+重装系统之后又需要装很多环境，
+装很多软件，时不时还找不到，忘记了。
+所以，在这里记录一下。
+
+<!--more-->
+
+### # 任务列表
+  - 替换 APT 源为清华源
+  - 安装 exFat-utils
+  - 安装 deepin-wine-for-ubuntu
+  - 安装 deepin-qq 和 deepin-wechat
+  - 安装 sogou输入法for Linux
+  - 安装 Chrome
+  - 安装 VSCode
+  - 安装 NVIDIA 驱动（非N卡不需要）
+  - 美化 Ubuntu （这里不做介绍了）
+  - 登录 QQ ，开始截图装比
+
+### # 操作记录
+
+#### 1.替换 APT 源为清华源
+因为感觉 Ubuntu 自己带的源 update 时太耗时间，
+所以琢磨这换掉他的 APT 源。
+
+第一步，将原来的源列表备份一下，以后有问题好恢复
+（虽然一般不会用）
+命令行输入：
+``` shell
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+```
+
+然后编辑源列表文件，我使用的是 gedit 打开，Ubuntu 自带的编辑工具
+命令行输入：
+``` shell
+sudo gedit /etc/apt/sources.list
+```
+
+然后把里面的东西全部删掉，把下面的源列表粘贴进去：
+``` shell
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
+```
+
+最后记得 update 一下
+``` shell
+sudo apt-get update
+```
+
+
+我的 Ubuntu 的版本是 16.04 的，
+所以上面我用的是 16.04 的版本的源，
+具体可以根据 Linux 系统的版本来进行更换的。
+下面是参考链接：
+[清华大学开源软件镜像站 Ubuntu 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)
+
+
+#### 2.安装 exFat-utils
+因为我的移动硬盘的格式是 exFat 格式的，
+所以我在这需要安装一下相对应的工具
+
+直接执行命令 
+``` shell
+sudo apt-get install exfat-utils
+```
+跑完就可以了
+
+#### 3.安装 deepin-wine-for-ubuntu
+需要在 Ubuntu 里面登录QQ是一件麻烦的事，
+因为官方并没有开发 Linux 版本的QQ，
+不过还好，因为 Deepin 系统做了一个兼容 Linux 系统的 QQ，
+然后又有热心的小伙伴把 Deepin 系统中的 wine 提取出来，
+于是出现了 deepin-wine-for-ubuntu 项目，
+这样子就可以在 Ubuntu 里面安装 QQ 啦~
+下面开始：
+
+首先从 github 或者 码云 上面去把这个项目 clone 下来，或者下载下来，
+这里推荐下载 zip 包吧，因为还没有装 git
+地址分别是：
+https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu
+https://github.com/wszqkzqk/deepin-wine-ubuntu
+
+进去之后找到 Clone and download 或者 克隆/下载
+进行下载
+![20190622144728.png](https://i.loli.net/2019/06/22/5d0dcf01eb23756592.png)
+或者
+![20190622144758.png](https://i.loli.net/2019/06/22/5d0dcf204757d67543.png)
+
+下载解压之后，
+进去解压的文件夹，
+在文件夹中打开终端，输入sudo ./install.sh一键安装。
+``` shell
+sudo ./install.sh
+```
+就可以了。
+
+后面就可以安装相对应的应用容器了，
+例如QQ，微信，
+
+附上下载地址
+QQ：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/
+微信：http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/
+总仓库地址：http://mirrors.aliyun.com/deepin/pool/non-free/d/
+
+
+#### 4.安装 deepin-qq 和 deepin-wechat
+上面已经有下载地址了，
+耳麦直接进入下载目录，
+在文件夹中打开终端，输入命令进行安装
+``` shell
+sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb
+sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb
+
+```
+当然具体看你下载的版本了。
+
+
+#### 5.安装 sogou输入法for Linux
+用不习惯 Ubuntu 自带的输入法，
+然后发现 搜狗输入法 有 Linux 版本的，
+所以就去官网下载了，
+下载下来之后直接 使用
+
+> sudo dpkg -i 文件名
+
+进行安装
+如果遇到安装出错了（十有八九这里会出错）
+执行一下命令,修复依赖
+``` shell
+sudo apt install -f
+```
+然后再执行安装程序
+
+到这里到一段落，
+但是我们现在是看不到选项的，
+我们还需要进行设置一番。
+
+
+待续。。。
+
+PS：
+如有遗漏，或者错误的地方，还请多多指出。
+
+-- Nick
+-- 2019/06/22
