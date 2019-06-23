@@ -21,8 +21,7 @@ tags:
   - 安装 deepin-wine-for-ubuntu
   - 安装 deepin-qq 和 deepin-wechat
   - 安装 sogou输入法for Linux
-  - 安装 Chrome
-  - 安装 VSCode
+  - 安装 Chrome 和 VSCode
   - 安装 NVIDIA 驱动（非N卡不需要）
   - 美化 Ubuntu （这里不做介绍了）
   - 登录 QQ ，开始截图装比
@@ -156,8 +155,86 @@ sudo apt install -f
 但是我们现在是看不到选项的，
 我们还需要进行设置一番。
 
+首先找到设置 --> 语言支持
+> 这里是图片,以后补上
 
-待续。。。
+将系统输入法系统 改为:fcitx
+> 这里是图片,以后补上
+
+保存退出,然后重启
+重启之后
+点击输入法(状态栏的小企鹅),
+然后弹出菜单,选择配置 Fcitx,
+在 Fcitx 界面点击左下角的 + 号
+然后在列表里面找到刚刚安装的
+sogou(搜狗)输入法, 选择,确定
+如果没有找到,注意不要勾选仅显示当前语言.
+
+然后关闭退出,
+就可以看到可以切换搜狗输入法了
+
+
+#### 6.安装 Chrome 和 VSCode
+这两个简单,因为我比较常用这两个软件,
+所以我就把他们加进来了
+下面放上他们两个的下载页面地址:
+Chrome: https://www.google.cn/chrome/
+VSCode: https://code.visualstudio.com/
+
+下载时候,在下载文件夹打开终端
+执行
+``` shell
+sudo dpkg -i 文件名
+```
+就好了
+
+
+#### 7.安装 NVIDIA 驱动（非N卡不需要）
+首先去 apt-cache 看一下最新的驱动是什么
+
+``` shell
+apt-cache search nvidia
+```
+
+然后会出现一大堆的列表,
+在里面看一下,有哪些
+
+当前最新的好像是 430 的版本了,
+我为了稳一点,
+还是安装的原来的 384
+然后在终端输入安装就好了
+
+``` shell
+sudo apt-get install nvidia-384
+```
+
+如果遇到出错了
+执行一下命令,修复依赖
+``` shell
+sudo apt install -f
+```
+再进行安装.
+
+等他刷完,就好了.
+然后重启,OK.
+
+
+#### 8.美化 Ubuntu
+以前安装好之后都会去美化一下,
+后来随着重装的次数变多了,
+就没继续.
+下面推荐一个文章,
+可以进去根据他的教程进行设置
+
+[不美翻怎么开发!Ubuntu 16.04 LTS深度美化!](https://www.jianshu.com/p/4bd2d9b1af41)
+
+
+#### 9.登录 QQ ，开始截图装比
+登录QQ,开始截图,
+然后发给小伙伴们,
+让他们羡慕一下你这美轮美奂的系统吧~
+
+
 
 PS：
 如有遗漏，或者错误的地方，还请多多指出。

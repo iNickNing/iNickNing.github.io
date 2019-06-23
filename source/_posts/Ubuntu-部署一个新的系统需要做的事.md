@@ -1,5 +1,5 @@
 ---
-title: (Ubuntu)部署一个新的系统需要做的事
+title: Ubuntu-部署一个新的系统需要做的事
 id: article20190619070540
 date: 2019-06-19 15:05:40
 categories: 学习记录
