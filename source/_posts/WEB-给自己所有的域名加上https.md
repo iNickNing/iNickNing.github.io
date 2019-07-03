@@ -7,7 +7,7 @@ tags:
   - Linux
   - Ubuntu
   - Nginx
-  - https
+  - HTTPS
 ---
 
 ### # 背景
@@ -17,6 +17,8 @@ tags:
 但是在阿里云的免费 **SSL证书** 服务有申请次数限制,
 所以,就找了一些免费签发 **SSL证书** 的网站,
 其中 **Let's Encrypt** 最适合我(这种白嫖怪).
+
+<!--more-->
 
 ### # 环境
 最开始先把我的环境说一下,
@@ -128,7 +130,6 @@ certbot github 地址: https://github.com/certbot/certbot
 
 PS:
   如有错误,还请多多指出来~
-
 
 -- Nick
 -- 2019/07/03
