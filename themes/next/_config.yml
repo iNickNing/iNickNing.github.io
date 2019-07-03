@@ -202,8 +202,8 @@ social:
   E-Mail: mailto:inickning@outlook.com || envelope
   简书: https://www.jianshu.com/u/0a9af3654913 || edit
   CSDN: https://blog.csdn.net/zuo_n || edit
-  QQ: //wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes || qq
-  Java群: //shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635 || qq
+  QQ: https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes || qq
+  Java群: https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635 || qq
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -225,7 +225,7 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  iNick的小站: //inick.top
+  iNick的小站: https://inick.top
   2345导航: https://www.2345.com/?k228919961
 
 
