@@ -125,7 +125,7 @@ sudo systemctl restart nginx
 这里放上相关的网址吧
 Let's Encrypt: https://letsencrypt.org/
 certbot: https://certbot.eff.org/
-certbot github 地址: https://github.com/certbot/certbot
+certbot 仓库: https://github.com/certbot/certbot
 
 
 PS:
