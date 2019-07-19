@@ -1,7 +1,7 @@
 ---
 title: >-
   问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large
-id: 'article2019-07-19 09:16:25'
+id: article20190719091625
 date: 2019-07-19 17:16:25
 categories: 问题解决
 tags:
@@ -33,7 +33,7 @@ error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Reques
 修改了服务请求的网址,然后加上了 https 证书
 
 ``` shell
-ROOT_URL         = https://****
+ROOT_URL = https://****
 CERT_FILE = /******/cert.pem
 KEY_FILE = /******/key.pem
 ```
@@ -97,10 +97,31 @@ client_max_body_size 128m;
 
 #### 修改 Nginx 配置文件
 
+把上传的阈值开大一点
+在 server 里面加上这么一句
+
+``` config
+client_max_body_size 128m;
+```
+
+例如
+
+![20190719203821.png](https://i.loli.net/2019/07/19/5d31b9bebd56316716.png)
 
 #### 重启 Nginx
 
+然后重启 Nginx 就好了
 
+``` shell
+sudo systemctl restart nginx
+```
+
+
+PS:
+  如有错误,还请多多指出来~
+
+-- Nick
+-- 2019/07/19
 
 
 
