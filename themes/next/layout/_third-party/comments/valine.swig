@@ -1,6 +1,8 @@
 {% if theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
   <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
-  <script src="//unpkg.com/valine@1.3.7/dist/Valine.min.js"></script>
+  <!-- or set latest -->
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
     var guest = '{{ theme.valine.guest_info }}';
