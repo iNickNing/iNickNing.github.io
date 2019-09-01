@@ -1,4 +1,1138 @@
-<!DOCTYPE html><html class="theme-next pisces" lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><link rel="stylesheet" href="/css/main.css?v=7.1.1"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1"><link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222"><script id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",version:"7.1.1",sidebar:{position:"left",display:"post",offset:60,onmobile:!1,dimmer:!1},back2top:!0,back2top_sidebar:!1,fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?e6a2891726b09ba28d8a0885f87baf69";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。"><meta name="keywords" content="Linux"><meta property="og:type" content="article"><meta property="og:title" content="Ubuntu-部署一个新的系统需要做的事"><meta property="og:url" content="https://inick.top/2019/article20190619070540/index.html"><meta property="og:site_name" content="iNick的小站"><meta property="og:description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b335b850eb31316.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b34998728670194.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3d3590da781854.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3dc129d5f52327.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3e28a5d2172554.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3eec745a880775.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3f662cbde91107.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3fcb90cd365181.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b40ae686d884191.png"><meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b40dda31e153942.png"><meta property="og:updated_time" content="2019-09-01T14:23:37.532Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Ubuntu-部署一个新的系统需要做的事"><meta name="twitter:description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。"><meta name="twitter:image" content="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png"><link rel="canonical" href="https://inick.top/2019/article20190619070540/"><script id="page.configurations">CONFIG.page={sidebar:""}</script><title>Ubuntu-部署一个新的系统需要做的事 | iNick的小站</title><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">iNick的小站</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">只有十分努力,才能看起来毫不费力.</h1></div><div class="site-nav-toggle"> <button aria-label="切换导航栏"><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br>友链</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i><br>站点地图</a></li></ul></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://inick.top/2019/article20190619070540/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="iNcik"><meta itemprop="description" content="只有十分努力,才能看起来毫不费力."><meta itemprop="image" content="/images/nick.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="iNick的小站"></span><header class="post-header"><h2 class="post-title" itemprop="name headline">Ubuntu-部署一个新的系统需要做的事</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-06-19 15:05:40" itemprop="dateCreated datePublished" datetime="2019-06-19T15:05:40+08:00">2019-06-19</time> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i></span> <span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-09-01 22:23:37" itemprop="dateModified" datetime="2019-09-01T22:23:37+08:00">2019-09-01</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a></span></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span> <span class="post-meta-item-text">评论数：</span><a href="/2019/article20190619070540/#comments" itemprop="discussionUrl"><span class="post-comments-count valine-comment-count" data-xid="/2019/article20190619070540/" itemprop="commentCount"></span></a></span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i> 阅读次数：<span class="busuanzi-value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body" itemprop="articleBody"><h3 id="背景"><a href="#背景" class="headerlink" title="# 背景"></a># 背景</h3><p>因为需要部署一些机器用于生产环境，<br>然后又需要后期好维护，<br>再这之前，我需要在电脑上做一些操作，<br>记性不好，所以用一片文来记录一下。</p><a id="more"></a><h3 id="任务列表"><a href="#任务列表" class="headerlink" title="# 任务列表"></a># 任务列表</h3><ul><li>关闭 Ubuntu 的自动更新</li><li>关闭错误弹框</li><li>安装设置 SaltStack</li><li>安装设置 frpc</li><li>安装设置 Teamviewer</li><li>开启 Ubuntu 远程协助 (VNC)</li><li>设置屏幕永不锁屏</li><li>设置当前用户自动登录</li></ul><h3 id="操作记录"><a href="#操作记录" class="headerlink" title="# 操作记录"></a># 操作记录</h3><h4 id="1-关闭-Ubuntu-的自动更新"><a href="#1-关闭-Ubuntu-的自动更新" class="headerlink" title="1.关闭 Ubuntu 的自动更新"></a>1.关闭 Ubuntu 的自动更新</h4><p>打开系统设置，找到软件与更新<br><img src="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png" alt="软件与更新"></p><p>然后找到Updates，做以下设置<br><img src="https://i.loli.net/2019/06/20/5d0b335b850eb31316.png" alt="设置从不更新"><br>把能关的全部关掉</p><h4 id="2-关闭错误弹框"><a href="#2-关闭错误弹框" class="headerlink" title="2.关闭错误弹框"></a>2.关闭错误弹框</h4><p>修改 /etc/default/apport 文件，<br>将 里面的 enable 的值从 1 改为 0</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/default/apport</span><br></pre></td></tr></table></figure><p>如图：<br><img src="https://i.loli.net/2019/06/20/5d0b34998728670194.png" alt="enable 的值从 1 改为 0 "></p><h4 id="3-安装设置-SaltStack"><a href="#3-安装设置-SaltStack" class="headerlink" title="3.安装设置 SaltStack"></a>3.安装设置 SaltStack</h4><p>按照首先添加 SaltStack 仓库<br>（我这里使用的是py3的版本）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https://repo.saltstack.com/py3/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure><p>设置 SaltStack 的 apt 更新地址</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash -c 'echo "deb http://repo.saltstack.com/py3/ubuntu/16.04/amd64/latest xenial main" &gt; /etc/apt/sources.list.d/saltstack.list'</span><br></pre></td></tr></table></figure><p>之后更新一下 apt， 再进行安装 salt-minion</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install salt-minion</span><br></pre></td></tr></table></figure><p>设置一下 salt-master 的地址，<br>用于连接服务器</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash -c 'echo "master: 22.89.199.61" &gt; /etc/salt/minion.d/set_master.conf'</span><br></pre></td></tr></table></figure><p>注意将 <strong><em>22.89.199.61</em></strong> 替换成你的服务器 ip</p><p>最后重新启动一下 salt-minion 服务</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart salt-minion</span><br></pre></td></tr></table></figure><p>有关 SaltStack 的详细配置，还请参照官网文档:<br><a href="https://repo.saltstack.com/#ubuntu" target="_blank" rel="noopener">SaltStack Package Repo</a></p><h4 id="4-安装设置-frpc"><a href="#4-安装设置-frpc" class="headerlink" title="4.安装设置 frpc"></a>4.安装设置 frpc</h4><p>首先去 frp 项目仓库把 frp 的文件下载下来<br><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">fatedier/frp</a></p><p>拿到 frpc， frpc.ini, frpc.service 三个文件，<br>(因为主要是用在客户端，所以这三个就够了)</p><p>首先配置好frpc.ini,<br>server_addr 是你服务器的ip<br>hostname ，最好每一台机器都要设置不同的名字，<br>……<br>具体请看仓库的 README.md文件 里面有详细配置</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 22.89.199.61</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh-hostname]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 7070</span><br><span class="line"></span><br><span class="line">[vnc-hostname]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7077</span><br></pre></td></tr></table></figure><p>然后进行安装（一系列骚操作）：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cp frpc /usr/local/bin/</span><br><span class="line">sudo mkdir -p /etc/frp</span><br><span class="line">sudo cp frpc.ini /etc/frp/</span><br><span class="line">sudo cp frpc.service /lib/systemd/system/</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start frpc</span><br><span class="line">sudo systemctl enable frpc</span><br></pre></td></tr></table></figure><h4 id="5-安装设置-Teamviewer"><a href="#5-安装设置-Teamviewer" class="headerlink" title="5.安装设置 Teamviewer"></a>5.安装设置 Teamviewer</h4><p>去 Teamviewer 官网下载 Teamviewer<br><a href="https://www.teamviewer.cn/cn/download/linux/" target="_blank" rel="noopener">下载 Linux 版 TeamViewer</a><br>安装之后，设置无人值守模式，设置独立密码。<br><img src="https://i.loli.net/2019/06/20/5d0b3d3590da781854.png" alt="设置独立密码"></p><h4 id="6-开启-Ubuntu-远程协助-VNC"><a href="#6-开启-Ubuntu-远程协助-VNC" class="headerlink" title="6.开启 Ubuntu 远程协助 (VNC)"></a>6.开启 Ubuntu 远程协助 (VNC)</h4><p>直接搜索 Desktop Sharing 就可<br>（我这里少打了字，谅解）<br><img src="https://i.loli.net/2019/06/20/5d0b3dc129d5f52327.png" alt="20190620160312.png"></p><p>然后继续如下设置</p><ul><li>设置允许其他用户访问我的桌面</li><li>允许其他用户控制我的桌面</li><li>需要用户输入密码</li><li>不显示通知栏图标</li></ul><p><img src="https://i.loli.net/2019/06/20/5d0b3e28a5d2172554.png" alt="20190620160452.png"></p><h4 id="7-设置屏幕永不锁屏"><a href="#7-设置屏幕永不锁屏" class="headerlink" title="7.设置屏幕永不锁屏"></a>7.设置屏幕永不锁屏</h4><p>打开设置，找到<br>亮度和锁屏<br><img src="https://i.loli.net/2019/06/20/5d0b3eec745a880775.png" alt="20190620160811.png"></p><p>将关闭屏幕的时间设置为 永不，<br>如图<br><img src="https://i.loli.net/2019/06/20/5d0b3f662cbde91107.png" alt="20190620161010.png"></p><h4 id="8-设置当前用户自动登录"><a href="#8-设置当前用户自动登录" class="headerlink" title="8.设置当前用户自动登录"></a>8.设置当前用户自动登录</h4><p>打开设置，找到<br>用户账户<br><img src="https://i.loli.net/2019/06/20/5d0b3fcb90cd365181.png" alt="20190620161154.png"></p><p>然后解锁，输入密码，验证通过，开启自动登录<br><img src="https://i.loli.net/2019/06/20/5d0b40ae686d884191.png" alt="20190620161541.png"></p><p>然后如图所示<br><img src="https://i.loli.net/2019/06/20/5d0b40dda31e153942.png" alt="20190620161629.png"></p><p>待续。。。。</p><p>如有不对，还请多多指教。</p><p>– Nick<br>– 2019/06/20</p></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> iNcik</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="https://inick.top/2019/article20190619070540/" title="Ubuntu-部署一个新的系统需要做的事">https://inick.top/2019/article20190619070540/</a></li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/Linux/" rel="tag"># Linux</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2019/article-20190616224929/" rel="next" title="正儿八经的一篇文章"><i class="fa fa-chevron-left"></i> 正儿八经的一篇文章</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/2019/article20190622061839/" rel="prev" title="Ubuntu-装好系统之后要怎么装比">Ubuntu-装好系统之后要怎么装比<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><div class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/nick.jpg" alt="iNcik"><p class="site-author-name" itemprop="name">iNcik</p><div class="site-description motion-element" itemprop="description">只有十分努力,才能看起来毫不费力.</div></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives/"><span class="site-state-item-count">10</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/"><span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/"><span class="site-state-item-count">17</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/iNickNing" title="GitHub &rarr; https://github.com/iNickNing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="mailto:inickning@outlook.com" title="E-Mail &rarr; mailto:inickning@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i> E-Mail</a></span><span class="links-of-author-item"><a href="https://www.jianshu.com/u/0a9af3654913" title="简书 &rarr; https://www.jianshu.com/u/0a9af3654913" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i> 简书</a></span><span class="links-of-author-item"><a href="https://my.oschina.net/inick" title="开源中国 &rarr; https://my.oschina.net/inick" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i> 开源中国</a></span><span class="links-of-author-item"><a href="https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes" title="QQ &rarr; https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i> QQ</a></span><span class="links-of-author-item"><a href="https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635" title="Java群 &rarr; https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i> Java群</a></span></div><div class="links-of-blogroll motion-element links-of-blogroll-block"><div class="links-of-blogroll-title"><i class="fa fa-fw fa-link"></i> Links</div><ul class="links-of-blogroll-list"><li class="links-of-blogroll-item"> <a href="https://inick.top" title="https://inick.top" target="_blank">iNick的小站</a></li><li class="links-of-blogroll-item"> <a href="https://www.2345.com/?k228919961" title="https://www.2345.com/?k228919961" target="_blank" rel="noopener">2345导航</a></li></ul></div></div></div><div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"># 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务列表"><span class="nav-number">2.</span> <span class="nav-text"># 任务列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作记录"><span class="nav-number">3.</span> <span class="nav-text"># 操作记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-关闭-Ubuntu-的自动更新"><span class="nav-number">3.1.</span> <span class="nav-text">1.关闭 Ubuntu 的自动更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-关闭错误弹框"><span class="nav-number">3.2.</span> <span class="nav-text">2.关闭错误弹框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装设置-SaltStack"><span class="nav-number">3.3.</span> <span class="nav-text">3.安装设置 SaltStack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装设置-frpc"><span class="nav-number">3.4.</span> <span class="nav-text">4.安装设置 frpc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-安装设置-Teamviewer"><span class="nav-number">3.5.</span> <span class="nav-text">5.安装设置 Teamviewer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开启-Ubuntu-远程协助-VNC"><span class="nav-number">3.6.</span> <span class="nav-text">6.开启 Ubuntu 远程协助 (VNC)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-设置屏幕永不锁屏"><span class="nav-number">3.7.</span> <span class="nav-text">7.设置屏幕永不锁屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-设置当前用户自动登录"><span class="nav-number">3.8.</span> <span class="nav-text">8.设置当前用户自动登录</span></a></li></ol></li></ol></div></div></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright"> <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备15018985号-1</a> &copy; <span itemprop="copyrightYear">2019</span><span class="with-love" id="animate"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">iNcik</span></div><div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div> <span class="post-meta-divider">|</span><div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div><div class="footer-custom">Hosted by <a href="https://github.com/iNickNing/iNickNing.github.io" class="theme-link" rel="noopener" target="_blank">Github Pages</a></div><div class="footer-custom"><div style="text-aligin:center" target="_blank">又拍云提供CDN & 存储服务</div> <a href="https://console.upyun.com/register/?invite=HkFxjOyAV" style="display:block;width:130px;margin:0 auto"><img src="https://upoos.inick.top/images/upyun_logo.png" width="130px"></a></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="post-meta-item-icon"><i class="fa fa-user"></i></span><span class="site-uv" title="总访客量"><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span> <span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span><span class="site-pv" title="总访问量"><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script>"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script src="/lib/jquery/index.js?v=2.1.3"></script><script src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script src="/js/utils.js?v=7.1.1"></script><script src="/js/motion.js?v=7.1.1"></script><script src="/js/affix.js?v=7.1.1"></script><script src="/js/schemes/pisces.js?v=7.1.1"></script><script src="/js/scrollspy.js?v=7.1.1"></script><script src="/js/post-details.js?v=7.1.1"></script><script src="/js/next-boot.js?v=7.1.1"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script type="text/javascript">
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":60,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e6a2891726b09ba28d8a0885f87baf69";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  <meta name="description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu-部署一个新的系统需要做的事">
+<meta property="og:url" content="https://inick.top/2019/article20190619070540/index.html">
+<meta property="og:site_name" content="iNick的小站">
+<meta property="og:description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b335b850eb31316.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b34998728670194.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3d3590da781854.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3dc129d5f52327.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3e28a5d2172554.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3eec745a880775.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3f662cbde91107.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b3fcb90cd365181.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b40ae686d884191.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/20/5d0b40dda31e153942.png">
+<meta property="og:updated_time" content="2019-09-01T14:23:37.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu-部署一个新的系统需要做的事">
+<meta name="twitter:description" content="# 背景因为需要部署一些机器用于生产环境，然后又需要后期好维护，再这之前，我需要在电脑上做一些操作，记性不好，所以用一片文来记录一下。">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://inick.top/2019/article20190619070540/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ubuntu-部署一个新的系统需要做的事 | iNick的小站</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iNick的小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">只有十分努力,才能看起来毫不费力.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-links">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/links/" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i> <br>友链</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://inick.top/2019/article20190619070540/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="iNcik">
+      <meta itemprop="description" content="只有十分努力,才能看起来毫不费力.">
+      <meta itemprop="image" content="/images/nick.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iNick的小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Ubuntu-部署一个新的系统需要做的事
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-19 15:05:40" itemprop="dateCreated datePublished" datetime="2019-06-19T15:05:40+08:00">2019-06-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-01 22:23:37" itemprop="dateModified" datetime="2019-09-01T22:23:37+08:00">2019-09-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/article20190619070540/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/article20190619070540/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="# 背景"></a># 背景</h3><p>因为需要部署一些机器用于生产环境，<br>然后又需要后期好维护，<br>再这之前，我需要在电脑上做一些操作，<br>记性不好，所以用一片文来记录一下。</p>
+<a id="more"></a>
+
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="# 任务列表"></a># 任务列表</h3><ul>
+<li>关闭 Ubuntu 的自动更新</li>
+<li>关闭错误弹框</li>
+<li>安装设置 SaltStack</li>
+<li>安装设置 frpc</li>
+<li>安装设置 Teamviewer</li>
+<li>开启 Ubuntu 远程协助 (VNC)</li>
+<li>设置屏幕永不锁屏</li>
+<li>设置当前用户自动登录</li>
+</ul>
+<h3 id="操作记录"><a href="#操作记录" class="headerlink" title="# 操作记录"></a># 操作记录</h3><h4 id="1-关闭-Ubuntu-的自动更新"><a href="#1-关闭-Ubuntu-的自动更新" class="headerlink" title="1.关闭 Ubuntu 的自动更新"></a>1.关闭 Ubuntu 的自动更新</h4><p>打开系统设置，找到软件与更新<br><img src="https://i.loli.net/2019/06/19/5d09e8a2da99a21957.png" alt="软件与更新"></p>
+<p>然后找到Updates，做以下设置<br><img src="https://i.loli.net/2019/06/20/5d0b335b850eb31316.png" alt="设置从不更新"><br>把能关的全部关掉</p>
+<h4 id="2-关闭错误弹框"><a href="#2-关闭错误弹框" class="headerlink" title="2.关闭错误弹框"></a>2.关闭错误弹框</h4><p>修改 /etc/default/apport 文件，<br>将 里面的 enable 的值从 1 改为 0 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/default/apport</span><br></pre></td></tr></table></figure>
+
+<p>如图：<br><img src="https://i.loli.net/2019/06/20/5d0b34998728670194.png" alt="enable 的值从 1 改为 0 "></p>
+<h4 id="3-安装设置-SaltStack"><a href="#3-安装设置-SaltStack" class="headerlink" title="3.安装设置 SaltStack"></a>3.安装设置 SaltStack</h4><p>按照首先添加 SaltStack 仓库<br>（我这里使用的是py3的版本）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O - https://repo.saltstack.com/py3/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<p>设置 SaltStack 的 apt 更新地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash -c 'echo "deb http://repo.saltstack.com/py3/ubuntu/16.04/amd64/latest xenial main" &gt; /etc/apt/sources.list.d/saltstack.list'</span><br></pre></td></tr></table></figure>
+
+<p>之后更新一下 apt， 再进行安装 salt-minion </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install salt-minion</span><br></pre></td></tr></table></figure>
+
+<p>设置一下 salt-master 的地址，<br>用于连接服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash -c 'echo "master: 22.89.199.61" &gt; /etc/salt/minion.d/set_master.conf'</span><br></pre></td></tr></table></figure>
+
+<p>注意将 <strong><em>22.89.199.61</em></strong> 替换成你的服务器 ip</p>
+<p>最后重新启动一下 salt-minion 服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart salt-minion</span><br></pre></td></tr></table></figure>
+
+<p>有关 SaltStack 的详细配置，还请参照官网文档:<br><a href="https://repo.saltstack.com/#ubuntu" target="_blank" rel="noopener">SaltStack Package Repo</a></p>
+<h4 id="4-安装设置-frpc"><a href="#4-安装设置-frpc" class="headerlink" title="4.安装设置 frpc"></a>4.安装设置 frpc</h4><p>首先去 frp 项目仓库把 frp 的文件下载下来<br><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">fatedier/frp</a></p>
+<p>拿到 frpc， frpc.ini, frpc.service 三个文件，<br>(因为主要是用在客户端，所以这三个就够了)</p>
+<p>首先配置好frpc.ini,<br>server_addr 是你服务器的ip<br>hostname ，最好每一台机器都要设置不同的名字，<br>……<br>具体请看仓库的 README.md文件 里面有详细配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 22.89.199.61</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh-hostname]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 7070</span><br><span class="line"></span><br><span class="line">[vnc-hostname]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7077</span><br></pre></td></tr></table></figure>
+
+<p>然后进行安装（一系列骚操作）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo cp frpc /usr/local/bin/</span><br><span class="line">sudo mkdir -p /etc/frp</span><br><span class="line">sudo cp frpc.ini /etc/frp/</span><br><span class="line">sudo cp frpc.service /lib/systemd/system/</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start frpc</span><br><span class="line">sudo systemctl enable frpc</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-安装设置-Teamviewer"><a href="#5-安装设置-Teamviewer" class="headerlink" title="5.安装设置 Teamviewer"></a>5.安装设置 Teamviewer</h4><p>去 Teamviewer 官网下载 Teamviewer<br><a href="https://www.teamviewer.cn/cn/download/linux/" target="_blank" rel="noopener">下载 Linux 版 TeamViewer</a><br>安装之后，设置无人值守模式，设置独立密码。<br><img src="https://i.loli.net/2019/06/20/5d0b3d3590da781854.png" alt="设置独立密码"></p>
+<h4 id="6-开启-Ubuntu-远程协助-VNC"><a href="#6-开启-Ubuntu-远程协助-VNC" class="headerlink" title="6.开启 Ubuntu 远程协助 (VNC)"></a>6.开启 Ubuntu 远程协助 (VNC)</h4><p>直接搜索 Desktop Sharing 就可<br>（我这里少打了字，谅解）<br><img src="https://i.loli.net/2019/06/20/5d0b3dc129d5f52327.png" alt="20190620160312.png"></p>
+<p>然后继续如下设置</p>
+<ul>
+<li>设置允许其他用户访问我的桌面</li>
+<li>允许其他用户控制我的桌面</li>
+<li>需要用户输入密码</li>
+<li>不显示通知栏图标</li>
+</ul>
+<p><img src="https://i.loli.net/2019/06/20/5d0b3e28a5d2172554.png" alt="20190620160452.png"></p>
+<h4 id="7-设置屏幕永不锁屏"><a href="#7-设置屏幕永不锁屏" class="headerlink" title="7.设置屏幕永不锁屏"></a>7.设置屏幕永不锁屏</h4><p>打开设置，找到<br>亮度和锁屏<br><img src="https://i.loli.net/2019/06/20/5d0b3eec745a880775.png" alt="20190620160811.png"></p>
+<p>将关闭屏幕的时间设置为 永不，<br>如图<br><img src="https://i.loli.net/2019/06/20/5d0b3f662cbde91107.png" alt="20190620161010.png"></p>
+<h4 id="8-设置当前用户自动登录"><a href="#8-设置当前用户自动登录" class="headerlink" title="8.设置当前用户自动登录"></a>8.设置当前用户自动登录</h4><p>打开设置，找到<br>用户账户<br><img src="https://i.loli.net/2019/06/20/5d0b3fcb90cd365181.png" alt="20190620161154.png"></p>
+<p>然后解锁，输入密码，验证通过，开启自动登录<br><img src="https://i.loli.net/2019/06/20/5d0b40ae686d884191.png" alt="20190620161541.png"></p>
+<p>然后如图所示<br><img src="https://i.loli.net/2019/06/20/5d0b40dda31e153942.png" alt="20190620161629.png"></p>
+<p>待续。。。。</p>
+<p>如有不对，还请多多指教。</p>
+<p>– Nick<br>– 2019/06/20</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>iNcik</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://inick.top/2019/article20190619070540/" title="Ubuntu-部署一个新的系统需要做的事">https://inick.top/2019/article20190619070540/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/article-20190616224929/" rel="next" title="正儿八经的一篇文章">
+                <i class="fa fa-chevron-left"></i> 正儿八经的一篇文章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/article20190622061839/" rel="prev" title="Ubuntu-装好系统之后要怎么装比">
+                Ubuntu-装好系统之后要怎么装比 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/nick.jpg" alt="iNcik">
+            
+              <p class="site-author-name" itemprop="name">iNcik</p>
+              <div class="site-description motion-element" itemprop="description">只有十分努力,才能看起来毫不费力.</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/iNickNing" title="GitHub &rarr; https://github.com/iNickNing" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:inickning@outlook.com" title="E-Mail &rarr; mailto:inickning@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.jianshu.com/u/0a9af3654913" title="简书 &rarr; https://www.jianshu.com/u/0a9af3654913" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://my.oschina.net/inick" title="开源中国 &rarr; https://my.oschina.net/inick" rel="noopener" target="_blank"><i class="fa fa-fw fa-edit"></i>开源中国</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes" title="QQ &rarr; https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635" title="Java群 &rarr; https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>Java群</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://inick.top" title="https://inick.top" target="_blank">iNick的小站</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.2345.com/?k228919961" title="https://www.2345.com/?k228919961" target="_blank" rel="noopener">2345导航</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text"># 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#任务列表"><span class="nav-number">2.</span> <span class="nav-text"># 任务列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作记录"><span class="nav-number">3.</span> <span class="nav-text"># 操作记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-关闭-Ubuntu-的自动更新"><span class="nav-number">3.1.</span> <span class="nav-text">1.关闭 Ubuntu 的自动更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-关闭错误弹框"><span class="nav-number">3.2.</span> <span class="nav-text">2.关闭错误弹框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装设置-SaltStack"><span class="nav-number">3.3.</span> <span class="nav-text">3.安装设置 SaltStack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装设置-frpc"><span class="nav-number">3.4.</span> <span class="nav-text">4.安装设置 frpc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-安装设置-Teamviewer"><span class="nav-number">3.5.</span> <span class="nav-text">5.安装设置 Teamviewer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-开启-Ubuntu-远程协助-VNC"><span class="nav-number">3.6.</span> <span class="nav-text">6.开启 Ubuntu 远程协助 (VNC)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-设置屏幕永不锁屏"><span class="nav-number">3.7.</span> <span class="nav-text">7.设置屏幕永不锁屏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-设置当前用户自动登录"><span class="nav-number">3.8.</span> <span class="nav-text">8.设置当前用户自动登录</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">湘ICP备15018985号-1 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">iNcik</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+  <div class="footer-custom">Hosted by <a href="https://github.com/iNickNing/iNickNing.github.io" class="theme-link" rel="noopener" target="_blank">Github Pages</a></div>
+
+<div class="footer-custom">
+<div style="text-aligin: center" target="_blank">又拍云提供CDN & 存储服务</div>
+<a href="https://console.upyun.com/register/?invite=HkFxjOyAV" style="display:block;width:130px;margin:0 auto;">
+  <img src="https://upoos.inick.top/images/upyun_logo.png" width="130px">
+</a> 
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <!--<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>-->
+  <!-- or set latest -->
+  <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
     var guest = 'nick,mail,link';
     guest = guest.split(',').filter(item=>{
@@ -15,4 +1149,79 @@
         guest_info:guest,
         pageSize:'10' || 10,
     });
-  </script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script></body></html>
+  </script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+  <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
