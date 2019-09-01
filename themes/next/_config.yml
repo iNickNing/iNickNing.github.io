@@ -201,7 +201,7 @@ social:
   GitHub: https://github.com/iNickNing || github
   E-Mail: mailto:inickning@outlook.com || envelope
   简书: https://www.jianshu.com/u/0a9af3654913 || edit
-  CSDN: https://blog.csdn.net/zuo_n || edit
+  开源中国: https://my.oschina.net/inick || edit
   QQ: https://wpa.qq.com/msgrd?v=3&uin=228919961&site=qq&menu=yes || qq
   Java群: https://shang.qq.com/wpa/qunwpa?idkey=33a78e43e8f978d03faac551a1c2234f39c55a110ae8ad124e8fec67ca69f635 || qq
   #Weibo: https://weibo.com/yourname || weibo
@@ -752,7 +752,7 @@ needmoreshare2:
 # ---------------------------------------------------------------
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 76d6c5f4e355dc9560c43bb581169221
 
 # Growingio Analytics ID
 # Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
@@ -831,7 +831,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true
+  enable: false
   total_visitors: true
   total_visitors_icon: user
   total_views: true
