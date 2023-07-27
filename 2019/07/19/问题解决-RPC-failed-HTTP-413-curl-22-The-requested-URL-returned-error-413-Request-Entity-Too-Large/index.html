@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/nick.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/nick.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/nick.jpg">
+  <link rel="mask-icon" href="/images/nick.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nick.xin","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":20,"offset":20},"copycode":{"enable":false,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="# 背景在创建了一个新项目,打算将它上传到自己的git服务器时,报错了:error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large">
+<meta property="og:type" content="article">
+<meta property="og:title" content="问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large">
+<meta property="og:url" content="http://nick.xin/2019/07/19/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-RPC-failed-HTTP-413-curl-22-The-requested-URL-returned-error-413-Request-Entity-Too-Large/index.html">
+<meta property="og:site_name" content="Nick的小站">
+<meta property="og:description" content="# 背景在创建了一个新项目,打算将它上传到自己的git服务器时,报错了:error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/07/19/5d31b9bebd56316716.png">
+<meta property="article:published_time" content="2019-07-19T09:16:25.000Z">
+<meta property="article:modified_time" content="2023-07-26T12:36:12.715Z">
+<meta property="article:author" content="Nick">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="nginx">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/19/5d31b9bebd56316716.png">
+
+
+<link rel="canonical" href="http://nick.xin/2019/07/19/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-RPC-failed-HTTP-413-curl-22-The-requested-URL-returned-error-413-Request-Entity-Too-Large/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://nick.xin/2019/07/19/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-RPC-failed-HTTP-413-curl-22-The-requested-URL-returned-error-413-Request-Entity-Too-Large/","path":"2019/07/19/问题解决-RPC-failed-HTTP-413-curl-22-The-requested-URL-returned-error-413-Request-Entity-Too-Large/","title":"问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large | Nick的小站</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Nick的小站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nick的小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-友链"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text"># 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text"># 查找问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%90%97-x"><span class="nav-number">2.1.</span> <span class="nav-text">HTTPS的原因吗? x</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%87%E7%94%A8-SSH-%E5%B0%9D%E8%AF%95%E6%8E%A8%E9%80%81-O"><span class="nav-number">2.2.</span> <span class="nav-text">采用 SSH 尝试推送 O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%9F%E8%AE%B8%E6%98%AF%E4%BB%A3%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98-O"><span class="nav-number">2.3.</span> <span class="nav-text">也许是代理的问题? O</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-number">3.</span> <span class="nav-text"># 问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text"># 问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-Nginx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">修改 Nginx 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%90%AF-Nginx"><span class="nav-number">4.2.</span> <span class="nav-text">重启 Nginx</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Nick"
+      src="/images/nick.jpg">
+  <p class="site-author-name" itemprop="name">Nick</p>
+  <div class="site-description" itemprop="description">Nick的小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://nick.xin/2019/07/19/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-RPC-failed-HTTP-413-curl-22-The-requested-URL-returned-error-413-Request-Entity-Too-Large/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/nick.jpg">
+      <meta itemprop="name" content="Nick">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nick的小站">
+      <meta itemprop="description" content="Nick的小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large | Nick的小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          问题解决-RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-19 17:16:25" itemprop="dateCreated datePublished" datetime="2019-07-19T17:16:25+08:00">2019-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-26 20:36:12" itemprop="dateModified" datetime="2023-07-26T20:36:12+08:00">2023-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="url" rel="index"><span itemprop="name">问题解决</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>495</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="背景"><a href="#背景" class="headerlink" title="# 背景"></a># 背景</h3><p>在创建了一个新项目,<br>打算将它上传到自己的git服务器时,<br>报错了:<br>error: RPC failed; HTTP 413 curl 22 The requested URL returned error: 413 Request Entity Too Large</p>
+<span id="more"></span>
+
+<h3 id="查找问题"><a href="#查找问题" class="headerlink" title="# 查找问题"></a># 查找问题</h3><h4 id="HTTPS的原因吗-x"><a href="#HTTPS的原因吗-x" class="headerlink" title="HTTPS的原因吗? x"></a>HTTPS的原因吗? x</h4><p>最开始我以为是我的 Gogs 的设置错了,<br>因为我原来一直是 http 来进行push的<br>这次我更新了站点的协议,全部变成了 https<br>可能是这个,然后我去 Gogs 的配置文件,进行修改</p>
+<blockquote>
+<p>{gogs根目录}&#x2F;custom&#x2F;conf&#x2F;app.ini </p>
+</blockquote>
+<p>修改了服务请求的网址,然后加上了 https 证书</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ROOT_URL = https://****</span><br><span class="line">CERT_FILE = /******/cert.pem</span><br><span class="line">KEY_FILE = /******/key.pem</span><br></pre></td></tr></table></figure>
+
+<p>重启服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart gogs</span><br></pre></td></tr></table></figure>
+
+<p>然而,还是报错.</p>
+<h4 id="采用-SSH-尝试推送-O"><a href="#采用-SSH-尝试推送-O" class="headerlink" title="采用 SSH 尝试推送 O"></a>采用 SSH 尝试推送 O</h4><p>记起来我以前为了方便都是使用 SSH 进行推送的,<br>从没有遇到这个错误,<br>这次使用的协议不一样,我试试用 SSH ,<br>刷刷刷…</p>
+<p>添加 公钥<br>修改git远程仓库<br>推送<br>….</p>
+<p>行云流水,问题解决,<br>不对,没有解决,这是在逃避问题.</p>
+<h4 id="也许是代理的问题-O"><a href="#也许是代理的问题-O" class="headerlink" title="也许是代理的问题? O"></a>也许是代理的问题? O</h4><p>看到报错的最后几个单词,<br>请求实体太大了???<br>这个错误有点眼熟,<br>在很久以前做文件存储服务时候遇到过,<br>大文件一直上传不来,<br>当时是 Nginx 进行代理的,</p>
+<p>一下子记起来了,需要设置一下 Nginx 的配置文件,<br>这次因为太匆忙没有设置.</p>
+<p>关键字应该是:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size 128m;</span><br></pre></td></tr></table></figure>
+
+<p>问题应该解决!!</p>
+<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="# 问题原因"></a># 问题原因</h3><p>因为 Nginx 的 client_max_body_size 默认大小只有 1M<br>而我要上传的文件超过了 1M<br>太大了,结果直接报错,不干活.</p>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="# 问题解决"></a># 问题解决</h3><p>找到问题就简单了,<br>两步解决:</p>
+<h4 id="修改-Nginx-配置文件"><a href="#修改-Nginx-配置文件" class="headerlink" title="修改 Nginx 配置文件"></a>修改 Nginx 配置文件</h4><p>把上传的阈值开大一点<br>在 server 里面加上这么一句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size 128m;</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<p><img src="https://i.loli.net/2019/07/19/5d31b9bebd56316716.png" alt="20190719203821.png"></p>
+<h4 id="重启-Nginx"><a href="#重启-Nginx" class="headerlink" title="重启 Nginx"></a>重启 Nginx</h4><p>然后重启 Nginx 就好了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+
+<p>PS:<br>  如有错误,还请多多指出来~</p>
+<p>– Nick<br>– 2019&#x2F;07&#x2F;19</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+              <a href="/tags/http/" rel="tag"># http</a>
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/07/09/%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81-Node-js%E5%88%A9%E7%94%A8https%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/" rel="prev" title="一行代码-Node.js利用https下载图片">
+                  <i class="fa fa-chevron-left"></i> 一行代码-Node.js利用https下载图片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/22/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%A9%E7%94%A8TensorFlow-js%E5%AE%9E%E7%8E%B0%E4%BA%BA%E4%BD%93%E8%AF%86%E5%88%AB/" rel="next" title="学习记录-利用TensorFlow.js实现人体识别">
+                  学习记录-利用TensorFlow.js实现人体识别 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nick</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">5k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/nick.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/nick.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/nick.jpg">
+  <link rel="mask-icon" href="/images/nick.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nick.xin","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":20,"offset":20},"copycode":{"enable":false,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="# 背景因为我总是时不时的就会把电脑重装，重装系统之后又需要装很多环境，装很多软件，时不时还找不到，忘记了。所以，在这里记录一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu-装好系统之后要怎么装比">
+<meta property="og:url" content="http://nick.xin/2019/06/22/Ubuntu-%E8%A3%85%E5%A5%BD%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8E%E8%A6%81%E6%80%8E%E4%B9%88%E8%A3%85%E6%AF%94/index.html">
+<meta property="og:site_name" content="Nick的小站">
+<meta property="og:description" content="# 背景因为我总是时不时的就会把电脑重装，重装系统之后又需要装很多环境，装很多软件，时不时还找不到，忘记了。所以，在这里记录一下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/06/22/5d0dcf01eb23756592.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/22/5d0dcf204757d67543.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104da37169d67544.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104e1d28b0e18568.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104dc7f171220368.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104e5364c8466402.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104ea19711e99046.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d104ec68456865630.png">
+<meta property="article:published_time" content="2019-06-22T06:18:39.000Z">
+<meta property="article:modified_time" content="2023-07-26T12:36:12.711Z">
+<meta property="article:author" content="Nick">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/22/5d0dcf01eb23756592.png">
+
+
+<link rel="canonical" href="http://nick.xin/2019/06/22/Ubuntu-%E8%A3%85%E5%A5%BD%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8E%E8%A6%81%E6%80%8E%E4%B9%88%E8%A3%85%E6%AF%94/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://nick.xin/2019/06/22/Ubuntu-%E8%A3%85%E5%A5%BD%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8E%E8%A6%81%E6%80%8E%E4%B9%88%E8%A3%85%E6%AF%94/","path":"2019/06/22/Ubuntu-装好系统之后要怎么装比/","title":"Ubuntu-装好系统之后要怎么装比"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ubuntu-装好系统之后要怎么装比 | Nick的小站</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Nick的小站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nick的小站</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-友链"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text"># 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text"># 任务列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text"># 操作记录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9B%BF%E6%8D%A2-APT-%E6%BA%90%E4%B8%BA%E6%B8%85%E5%8D%8E%E6%BA%90"><span class="nav-number">3.1.</span> <span class="nav-text">1.替换 APT 源为清华源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-exFat-utils"><span class="nav-number">3.2.</span> <span class="nav-text">2.安装 exFat-utils</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85-deepin-wine-for-ubuntu"><span class="nav-number">3.3.</span> <span class="nav-text">3.安装 deepin-wine-for-ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85-deepin-qq-%E5%92%8C-deepin-wechat"><span class="nav-number">3.4.</span> <span class="nav-text">4.安装 deepin-qq 和 deepin-wechat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%AE%89%E8%A3%85-sogou%E8%BE%93%E5%85%A5%E6%B3%95for-Linux"><span class="nav-number">3.5.</span> <span class="nav-text">5.安装 sogou输入法for Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%AE%89%E8%A3%85-Chrome-%E5%92%8C-VSCode"><span class="nav-number">3.6.</span> <span class="nav-text">6.安装 Chrome 和 VSCode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E5%AE%89%E8%A3%85-NVIDIA-%E9%A9%B1%E5%8A%A8%EF%BC%88%E9%9D%9EN%E5%8D%A1%E4%B8%8D%E9%9C%80%E8%A6%81%EF%BC%89"><span class="nav-number">3.7.</span> <span class="nav-text">7.安装 NVIDIA 驱动（非N卡不需要）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E7%BE%8E%E5%8C%96-Ubuntu"><span class="nav-number">3.8.</span> <span class="nav-text">8.美化 Ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-%E7%99%BB%E5%BD%95-QQ-%EF%BC%8C%E5%BC%80%E5%A7%8B%E6%88%AA%E5%9B%BE%E8%A3%85%E6%AF%94"><span class="nav-number">3.9.</span> <span class="nav-text">9.登录 QQ ，开始截图装比</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Nick"
+      src="/images/nick.jpg">
+  <p class="site-author-name" itemprop="name">Nick</p>
+  <div class="site-description" itemprop="description">Nick的小站</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://nick.xin/2019/06/22/Ubuntu-%E8%A3%85%E5%A5%BD%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%90%8E%E8%A6%81%E6%80%8E%E4%B9%88%E8%A3%85%E6%AF%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/nick.jpg">
+      <meta itemprop="name" content="Nick">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nick的小站">
+      <meta itemprop="description" content="Nick的小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ubuntu-装好系统之后要怎么装比 | Nick的小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu-装好系统之后要怎么装比
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-22 14:18:39" itemprop="dateCreated datePublished" datetime="2019-06-22T14:18:39+08:00">2019-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-26 20:36:12" itemprop="dateModified" datetime="2023-07-26T20:36:12+08:00">2023-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="背景"><a href="#背景" class="headerlink" title="# 背景"></a># 背景</h3><p>因为我总是时不时的就会把电脑重装，<br>重装系统之后又需要装很多环境，<br>装很多软件，时不时还找不到，忘记了。<br>所以，在这里记录一下。</p>
+<span id="more"></span>
+
+<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="# 任务列表"></a># 任务列表</h3><ul>
+<li>替换 APT 源为清华源</li>
+<li>安装 exFat-utils</li>
+<li>安装 deepin-wine-for-ubuntu</li>
+<li>安装 deepin-qq 和 deepin-wechat</li>
+<li>安装 sogou输入法for Linux</li>
+<li>安装 Chrome 和 VSCode</li>
+<li>安装 NVIDIA 驱动（非N卡不需要）</li>
+<li>美化 Ubuntu （这里不做介绍了）</li>
+<li>登录 QQ ，开始截图装比</li>
+</ul>
+<h3 id="操作记录"><a href="#操作记录" class="headerlink" title="# 操作记录"></a># 操作记录</h3><h4 id="1-替换-APT-源为清华源"><a href="#1-替换-APT-源为清华源" class="headerlink" title="1.替换 APT 源为清华源"></a>1.替换 APT 源为清华源</h4><p>因为感觉 Ubuntu 自己带的源 update 时太耗时间，<br>所以琢磨这换掉他的 APT 源。</p>
+<p>第一步，将原来的源列表备份一下，以后有问题好恢复<br>（虽然一般不会用）<br>命令行输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<p>然后编辑源列表文件，我使用的是 gedit 打开，Ubuntu 自带的编辑工具<br>命令行输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>然后把里面的东西全部删掉，把下面的源列表粘贴进去：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">预发布软件源，不建议启用</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
+
+<p>最后记得 update 一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+
+<p>我的 Ubuntu 的版本是 16.04 的，<br>所以上面我用的是 16.04 的版本的源，<br>具体可以根据 Linux 系统的版本来进行更换的。<br>下面是参考链接：<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像站 Ubuntu 镜像使用帮助</a></p>
+<h4 id="2-安装-exFat-utils"><a href="#2-安装-exFat-utils" class="headerlink" title="2.安装 exFat-utils"></a>2.安装 exFat-utils</h4><p>因为我的移动硬盘的格式是 exFat 格式的，<br>所以我在这需要安装一下相对应的工具</p>
+<p>直接执行命令 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install exfat-utils</span><br></pre></td></tr></table></figure>
+<p>跑完就可以了</p>
+<h4 id="3-安装-deepin-wine-for-ubuntu"><a href="#3-安装-deepin-wine-for-ubuntu" class="headerlink" title="3.安装 deepin-wine-for-ubuntu"></a>3.安装 deepin-wine-for-ubuntu</h4><p>需要在 Ubuntu 里面登录QQ是一件麻烦的事，<br>因为官方并没有开发 Linux 版本的QQ，<br>不过还好，因为 Deepin 系统做了一个兼容 Linux 系统的 QQ，<br>然后又有热心的小伙伴把 Deepin 系统中的 wine 提取出来，<br>于是出现了 deepin-wine-for-ubuntu 项目，<br>这样子就可以在 Ubuntu 里面安装 QQ 啦~<br>下面开始：</p>
+<p>首先从 github 或者 码云 上面去把这个项目 clone 下来，或者下载下来，<br>这里推荐下载 zip 包吧，因为还没有装 git<br>地址分别是：<br><a target="_blank" rel="noopener" href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu">https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu</a><br><a target="_blank" rel="noopener" href="https://github.com/wszqkzqk/deepin-wine-ubuntu">https://github.com/wszqkzqk/deepin-wine-ubuntu</a></p>
+<p>进去之后找到 Clone and download 或者 克隆&#x2F;下载<br>进行下载<br><img src="https://i.loli.net/2019/06/22/5d0dcf01eb23756592.png" alt="20190622144728.png"><br>或者<br><img src="https://i.loli.net/2019/06/22/5d0dcf204757d67543.png" alt="20190622144758.png"></p>
+<p>下载解压之后，<br>进去解压的文件夹，<br>在文件夹中打开终端，输入sudo .&#x2F;install.sh一键安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./install.sh</span><br></pre></td></tr></table></figure>
+<p>就可以了。</p>
+<p>后面就可以安装相对应的应用容器了，<br>例如QQ，微信，</p>
+<p>附上下载地址<br>QQ：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/</a><br>微信：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/">http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/</a><br>总仓库地址：<a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/deepin/pool/non-free/d/">http://mirrors.aliyun.com/deepin/pool/non-free/d/</a></p>
+<h4 id="4-安装-deepin-qq-和-deepin-wechat"><a href="#4-安装-deepin-qq-和-deepin-wechat" class="headerlink" title="4.安装 deepin-qq 和 deepin-wechat"></a>4.安装 deepin-qq 和 deepin-wechat</h4><p>上面已经有下载地址了，<br>耳麦直接进入下载目录，<br>在文件夹中打开终端，输入命令进行安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.qq.im_8.9.19983deepin23_i386.deb</span><br><span class="line">sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当然具体看你下载的版本了。</p>
+<h4 id="5-安装-sogou输入法for-Linux"><a href="#5-安装-sogou输入法for-Linux" class="headerlink" title="5.安装 sogou输入法for Linux"></a>5.安装 sogou输入法for Linux</h4><p>用不习惯 Ubuntu 自带的输入法，<br>然后发现 搜狗输入法 有 Linux 版本的，<br>所以就去官网下载了，<br>下载下来之后直接 使用</p>
+<blockquote>
+<p>sudo dpkg -i 文件名</p>
+</blockquote>
+<p>进行安装<br>如果遇到安装出错了（十有八九这里会出错）<br>执行一下命令,修复依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -f</span><br></pre></td></tr></table></figure>
+<p>然后再执行安装程序</p>
+<p>到这里到一段落，<br>但是我们现在是看不到选项的，<br>我们还需要进行设置一番。</p>
+<p>首先找到设置 –&gt; 语言支持<br><img src="https://i.loli.net/2019/06/24/5d104da37169d67544.png" alt="20190624121218.png"></p>
+<p>将系统输入法系统 改为:fcitx<br><img src="https://i.loli.net/2019/06/24/5d104e1d28b0e18568.jpg" alt="改为:fcitx"></p>
+<p>保存退出,然后重启<br>重启之后<br>点击输入法(状态栏的小企鹅),<br><img src="https://i.loli.net/2019/06/24/5d104dc7f171220368.png" alt="20190624121255.png"></p>
+<p>然后弹出菜单,选择配置 Fcitx,<br>在 Fcitx 界面点击左下角的 + 号<br>(我这里已经添加了)<br><img src="https://i.loli.net/2019/06/24/5d104e5364c8466402.png" alt="20190624121515.png"></p>
+<p>然后在列表里面找到刚刚安装的<br>sogou(搜狗)输入法, 选择,确定<br><img src="https://i.loli.net/2019/06/24/5d104ea19711e99046.png" alt="20190624121633.png"><br>如果没有找到,注意不要勾选仅显示当前语言.</p>
+<p>然后关闭退出,<br>就可以看到可以切换搜狗输入法了<br><img src="https://i.loli.net/2019/06/24/5d104ec68456865630.png" alt="20190624121710.png"></p>
+<h4 id="6-安装-Chrome-和-VSCode"><a href="#6-安装-Chrome-和-VSCode" class="headerlink" title="6.安装 Chrome 和 VSCode"></a>6.安装 Chrome 和 VSCode</h4><p>这两个简单,因为我比较常用这两个软件,<br>所以我就把他们加进来了<br>下面放上他们两个的下载页面地址:<br>Chrome: <a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a><br>VSCode: <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+<p>下载时候,在下载文件夹打开终端<br>执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i 文件名</span><br></pre></td></tr></table></figure>
+<p>就好了</p>
+<h4 id="7-安装-NVIDIA-驱动（非N卡不需要）"><a href="#7-安装-NVIDIA-驱动（非N卡不需要）" class="headerlink" title="7.安装 NVIDIA 驱动（非N卡不需要）"></a>7.安装 NVIDIA 驱动（非N卡不需要）</h4><p>首先去 apt-cache 看一下最新的驱动是什么</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search nvidia</span><br></pre></td></tr></table></figure>
+
+<p>然后会出现一大堆的列表,<br>在里面看一下,有哪些</p>
+<p>当前最新的好像是 430 的版本了,<br>我为了稳一点,<br>还是安装的原来的 384<br>然后在终端输入安装就好了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nvidia-384</span><br></pre></td></tr></table></figure>
+
+<p>如果遇到出错了<br>执行一下命令,修复依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -f</span><br></pre></td></tr></table></figure>
+<p>再进行安装.</p>
+<p>等他刷完,就好了.<br>然后重启,OK.</p>
+<h4 id="8-美化-Ubuntu"><a href="#8-美化-Ubuntu" class="headerlink" title="8.美化 Ubuntu"></a>8.美化 Ubuntu</h4><p>以前安装好之后都会去美化一下,<br>后来随着重装的次数变多了,<br>就没继续.<br>下面推荐一个文章,<br>可以进去根据他的教程进行设置</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4bd2d9b1af41">不美翻怎么开发!Ubuntu 16.04 LTS深度美化!</a></p>
+<h4 id="9-登录-QQ-，开始截图装比"><a href="#9-登录-QQ-，开始截图装比" class="headerlink" title="9.登录 QQ ，开始截图装比"></a>9.登录 QQ ，开始截图装比</h4><p>登录QQ,开始截图,<br>然后发给小伙伴们,<br>让他们羡慕一下你这美轮美奂的系统吧~</p>
+<p>PS：<br>如有遗漏，或者错误的地方，还请多多指出。</p>
+<p>– Nick<br>– 2019&#x2F;06&#x2F;22</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/06/19/Ubuntu-%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%9C%80%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B/" rel="prev" title="Ubuntu-部署一个新的系统需要做的事">
+                  <i class="fa fa-chevron-left"></i> Ubuntu-部署一个新的系统需要做的事
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/03/WEB-%E7%BB%99%E8%87%AA%E5%B7%B1%E6%89%80%E6%9C%89%E7%9A%84%E5%9F%9F%E5%90%8D%E5%8A%A0%E4%B8%8Ahttps/" rel="next" title="WEB-给自己所有的域名加上HTTPS">
+                  WEB-给自己所有的域名加上HTTPS <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Nick</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">5k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
