@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"nick.xin","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":20,"offset":20},"copycode":{"enable":false,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Linux(CentOS7)下载yum下的rpm包downloadonly 下载直接使用命令 12# 以nginx为例yum install --downloadonly --downloaddir&#x3D;&#x2F;opt&#x2F;download nginx">
+    <meta name="description" content="Hexo文章发布备忘平时习惯在自己的笔记本上面记录,较少发布文章到外面的环境 HEXO 的使用也相对次数变少了 下面记录一下一些常用的命令 当然,直接访问官方文档也可以: https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;commands">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux(CentOS7)下载yum下的rpm包">
-<meta property="og:url" content="http://nick.xin/posts/2023aa94ac0b1bcf.html">
+<meta property="og:title" content="Hexo文章发布备忘">
+<meta property="og:url" content="http://nick.xin/posts/2023e6eccfd99453.html">
 <meta property="og:site_name" content="Nick的小站">
-<meta property="og:description" content="Linux(CentOS7)下载yum下的rpm包downloadonly 下载直接使用命令 12# 以nginx为例yum install --downloadonly --downloaddir&#x3D;&#x2F;opt&#x2F;download nginx">
+<meta property="og:description" content="Hexo文章发布备忘平时习惯在自己的笔记本上面记录,较少发布文章到外面的环境 HEXO 的使用也相对次数变少了 下面记录一下一些常用的命令 当然,直接访问官方文档也可以: https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;commands">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-01T15:05:37.000Z">
-<meta property="article:modified_time" content="2023-12-01T15:08:26.846Z">
+<meta property="article:published_time" content="2023-12-01T15:09:44.000Z">
+<meta property="article:modified_time" content="2023-12-01T15:17:52.047Z">
 <meta property="article:author" content="Nick">
 <meta property="article:tag" content="Nick,Java,开发,Web,学习">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://nick.xin/posts/2023aa94ac0b1bcf.html">
+<link rel="canonical" href="http://nick.xin/posts/2023e6eccfd99453.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://nick.xin/posts/2023aa94ac0b1bcf.html","path":"posts/2023aa94ac0b1bcf.html","title":"Linux(CentOS7)下载yum下的rpm包"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://nick.xin/posts/2023e6eccfd99453.html","path":"posts/2023e6eccfd99453.html","title":"Hexo文章发布备忘"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux(CentOS7)下载yum下的rpm包 | Nick的小站</title>
+<title>Hexo文章发布备忘 | Nick的小站</title>
   
 
 
@@ -114,7 +114,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-CentOS7-%E4%B8%8B%E8%BD%BDyum%E4%B8%8B%E7%9A%84rpm%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">Linux(CentOS7)下载yum下的rpm包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#downloadonly-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">downloadonly 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-yumdownloader"><span class="nav-number">1.2.</span> <span class="nav-text">使用 yumdownloader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-repotrack"><span class="nav-number">1.3.</span> <span class="nav-text">使用  repotrack</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83%E5%A4%87%E5%BF%98"><span class="nav-number">1.</span> <span class="nav-text">Hexo文章发布备忘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0-new"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建新的文章: new</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E9%A1%B5%E9%9D%A2%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6-generate"><span class="nav-number">1.1.2.</span> <span class="nav-text">生成页面静态文件: generate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1-server"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地启动服务: server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%8F%91%E5%B8%83-publish"><span class="nav-number">1.1.4.</span> <span class="nav-text">文章发布: publish</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,7 +171,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://nick.xin/posts/2023aa94ac0b1bcf.html">
+    <link itemprop="mainEntityOfPage" href="http://nick.xin/posts/2023e6eccfd99453.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/nick.jpg">
@@ -184,12 +184,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Linux(CentOS7)下载yum下的rpm包 | Nick的小站">
+      <meta itemprop="name" content="Hexo文章发布备忘 | Nick的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux(CentOS7)下载yum下的rpm包
+          Hexo文章发布备忘
         </h1>
 
         <div class="post-meta-container">
@@ -201,7 +201,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-12-01 23:05:37 / 修改时间：23:08:26" itemprop="dateCreated datePublished" datetime="2023-12-01T23:05:37+08:00">2023-12-01</time>
+      <time title="创建时间：2023-12-01 23:09:44 / 修改时间：23:17:52" itemprop="dateCreated datePublished" datetime="2023-12-01T23:09:44+08:00">2023-12-01</time>
     </span>
 
   
@@ -211,7 +211,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>82</span>
+      <span>237</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -228,16 +228,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="Linux-CentOS7-下载yum下的rpm包"><a href="#Linux-CentOS7-下载yum下的rpm包" class="headerlink" title="Linux(CentOS7)下载yum下的rpm包"></a>Linux(CentOS7)下载yum下的rpm包</h1><h2 id="downloadonly-下载"><a href="#downloadonly-下载" class="headerlink" title="downloadonly 下载"></a>downloadonly 下载</h2><p>直接使用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以nginx为例</span></span><br><span class="line">yum install --downloadonly --downloaddir=/opt/download nginx</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h1 id="Hexo文章发布备忘"><a href="#Hexo文章发布备忘" class="headerlink" title="Hexo文章发布备忘"></a>Hexo文章发布备忘</h1><p>平时习惯在自己的笔记本上面记录,较少发布文章到外面的环境</p>
+<p>HEXO 的使用也相对次数变少了</p>
+<p>下面记录一下一些常用的命令</p>
+<p>当然,直接访问官方文档也可以: <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
 <span id="more"></span>
 
-<p>拿到rpm包之后,可以放到离线环境的 Linux 进行安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh --force --nodeps *.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="创建新的文章-new"><a href="#创建新的文章-new" class="headerlink" title="创建新的文章: new"></a>创建新的文章: new</h3><p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">例如</span></span><br><span class="line"></span><br><span class="line">hexo new &quot;post title with whitespace&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="使用-yumdownloader"><a href="#使用-yumdownloader" class="headerlink" title="使用 yumdownloader"></a>使用 yumdownloader</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line"></span><br><span class="line">yumdownloader --resolve --destdir=/tmp ansible</span><br></pre></td></tr></table></figure>
+<h3 id="生成页面静态文件-generate"><a href="#生成页面静态文件-generate" class="headerlink" title="生成页面静态文件: generate"></a>生成页面静态文件: generate</h3><p>将我们新建的文章编译一下,变成html文件,用于发布</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="使用-repotrack"><a href="#使用-repotrack" class="headerlink" title="使用  repotrack"></a>使用  repotrack</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum -y install yum-utils</span><br><span class="line">repotrack nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="本地启动服务-server"><a href="#本地启动服务-server" class="headerlink" title="本地启动服务: server"></a>本地启动服务: server</h3><p>用于查看文章的情况,主要是发布之前的预览</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<h3 id="文章发布-publish"><a href="#文章发布-publish" class="headerlink" title="文章发布: publish"></a>文章发布: publish</h3><p>将文章发布到指定的仓库,我只配置了 GitHub</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo publish [layout] &lt;filename&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -251,14 +258,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/2023130ce826500c.html" rel="prev" title="2023年补充的文章">
-                  <i class="fa fa-angle-left"></i> 2023年补充的文章
+                <a href="/posts/2023aa94ac0b1bcf.html" rel="prev" title="Linux(CentOS7)下载yum下的rpm包">
+                  <i class="fa fa-angle-left"></i> Linux(CentOS7)下载yum下的rpm包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/2023e6eccfd99453.html" rel="next" title="Hexo文章发布备忘">
-                  Hexo文章发布备忘 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
