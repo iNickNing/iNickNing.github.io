@@ -19,26 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"nick.xin","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":20,"offset":20},"copycode":{"enable":false,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Nick的小站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nick的小站">
-<meta property="og:url" content="http://nick.xin/tags/Linux/index.html">
+    <meta name="description" content="Linux(CentOS7)下载yum下的rpm包downloadonly 下载直接使用命令 12# 以nginx为例yum install --downloadonly --downloaddir&#x3D;&#x2F;opt&#x2F;download nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux(CentOS7)下载yum下的rpm包">
+<meta property="og:url" content="http://nick.xin/posts/2023aa94ac0b1bcf.html">
 <meta property="og:site_name" content="Nick的小站">
-<meta property="og:description" content="Nick的小站">
+<meta property="og:description" content="Linux(CentOS7)下载yum下的rpm包downloadonly 下载直接使用命令 12# 以nginx为例yum install --downloadonly --downloaddir&#x3D;&#x2F;opt&#x2F;download nginx">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-01T15:05:37.000Z">
+<meta property="article:modified_time" content="2023-12-01T15:08:26.846Z">
 <meta property="article:author" content="Nick">
 <meta property="article:tag" content="Nick,Java,开发,Web,学习">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://nick.xin/tags/Linux/">
+<link rel="canonical" href="http://nick.xin/posts/2023aa94ac0b1bcf.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/Linux/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://nick.xin/posts/2023aa94ac0b1bcf.html","path":"posts/2023aa94ac0b1bcf.html","title":"Linux(CentOS7)下载yum下的rpm包"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: Linux | Nick的小站</title>
+<title>Linux(CentOS7)下载yum下的rpm包 | Nick的小站</title>
   
 
 
@@ -98,7 +100,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -111,6 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-CentOS7-%E4%B8%8B%E8%BD%BDyum%E4%B8%8B%E7%9A%84rpm%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">Linux(CentOS7)下载yum下的rpm包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#downloadonly-%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">downloadonly 下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-yumdownloader"><span class="nav-number">1.2.</span> <span class="nav-text">使用 yumdownloader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-repotrack"><span class="nav-number">1.3.</span> <span class="nav-text">使用  repotrack</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,90 +159,112 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Linux
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://nick.xin/posts/2023aa94ac0b1bcf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/nick.jpg">
+      <meta itemprop="name" content="Nick">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nick的小站">
+      <meta itemprop="description" content="Nick的小站">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux(CentOS7)下载yum下的rpm包 | Nick的小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux(CentOS7)下载yum下的rpm包
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
+
+      <time title="创建时间：2023-12-01 23:05:37 / 修改时间：23:08:26" itemprop="dateCreated datePublished" datetime="2023-12-01T23:05:37+08:00">2023-12-01</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>82</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Linux-CentOS7-下载yum下的rpm包"><a href="#Linux-CentOS7-下载yum下的rpm包" class="headerlink" title="Linux(CentOS7)下载yum下的rpm包"></a>Linux(CentOS7)下载yum下的rpm包</h1><h2 id="downloadonly-下载"><a href="#downloadonly-下载" class="headerlink" title="downloadonly 下载"></a>downloadonly 下载</h2><p>直接使用命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以nginx为例</span></span><br><span class="line">yum install --downloadonly --downloaddir=/opt/download nginx</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>拿到rpm包之后,可以放到离线环境的 Linux 进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh --force --nodeps *.rpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-yumdownloader"><a href="#使用-yumdownloader" class="headerlink" title="使用 yumdownloader"></a>使用 yumdownloader</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install yum-utils</span><br><span class="line"></span><br><span class="line">yumdownloader --resolve --destdir=/tmp ansible</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-repotrack"><a href="#使用-repotrack" class="headerlink" title="使用  repotrack"></a>使用  repotrack</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">yum -y install yum-utils</span><br><span class="line">repotrack nginx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-07-03T11:09:31+08:00"
-              content="2019-07-03">
-          07-03
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/20198f4f8e245e58.html" itemprop="url">
-            <span itemprop="name">WEB-给自己所有的域名加上HTTPS</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2023130ce826500c.html" rel="prev" title="2023年补充的文章">
+                  <i class="fa fa-chevron-left"></i> 2023年补充的文章
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-06-22T14:18:39+08:00"
-              content="2019-06-22">
-          06-22
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/20195810b670df0b.html" itemprop="url">
-            <span itemprop="name">Ubuntu-装好系统之后要怎么装比</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-06-19T15:05:40+08:00"
-              content="2019-06-19">
-          06-19
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/20196af0cf8187a4.html" itemprop="url">
-            <span itemprop="name">Ubuntu-部署一个新的系统需要做的事</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 </div>
   </main>
